@@ -2,8 +2,12 @@ version: 0.2
 phases:
   install:
     commands:
-      - npm install -g snyk  # Install Snyk CLI
+      - npm install -g snyk
+  pre_build:
+    commands:
+      - echo "Retrieving Snyk token..."
+      - export SNYK_TOKEN=$(aws ssm get-parameter --name "/snyk/api-token" --with-decryption --query Parameter.Value --output text --region us-east-2)
   build:
     commands:
       - npm install
-      - snyk test --all-projects  # Scan for vulnerabilities
+      - snyk test --all-projects
