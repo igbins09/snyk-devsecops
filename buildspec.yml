@@ -1,0 +1,9 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - npm install -g snyk  # Install Snyk CLI
+  build:
+    commands:
+      - npm install
+      - snyk test --all-projects  # Scan for vulnerabilities
