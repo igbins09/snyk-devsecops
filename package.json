@@ -1,0 +1,8 @@
+{
+  "name": "snyk-app",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.17.1",
+    "lodash": "4.17.19" // Known vulnerable version for testing
+  }
+}
